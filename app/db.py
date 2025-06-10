@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, 
 
 # função que cria as tabelas no banco de dados
 def init_db(connection_url):
+    connection_url = connection_url.replace("mysql://", "mysql+pymysql://")
     engine = create_engine(connection_url)
     metadata = MetaData()
 
